@@ -1,12 +1,18 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 
 
-function UserProfile(){
+function UserProfile(props){
+console.log(props.userObj)
+
     return (
-      <div>
-        <h3>User Profile:</h3>
-        
+      <div className="container">
+        <div className="profile-card">
+        <h3>Name: {props.userObj.name}</h3>
+        <h3>Hometown: {props.userObj.city}</h3>
+        <h3>Email Address: {props.userObj["email_address"]}</h3>
+        </div>
         
       </div>
     )
@@ -15,9 +21,13 @@ function UserProfile(){
 
 }
 
+const msp = (state) => {
+  return {
+    userObj: state.userObj
+  }
+}
 
 
 
 
-
-export default UserProfile
+export default connect(msp)(UserProfile)

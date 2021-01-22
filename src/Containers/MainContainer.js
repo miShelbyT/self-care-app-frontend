@@ -11,23 +11,24 @@ import { Route, Switch } from 'react-router-dom'
 
 
 
-function MainContainer(props){
+
+function MainContainer(props) {
 
 
-
-return (
-<div className="main-container">
-<Switch>
-      <Route path="/welcome" component={Welcome} />
-        <Route path="/activities" component={ActivitiesContainer} />
+  return (
+    <div className="parent">
+      <Switch>
+        <Route path="/welcome" component={Welcome} />
         <Route path="/journal-entries" component={JournalEntriesContainer} />
+        <Route path="/activities" component={ActivitiesContainer} />
         <Route path="/journal-new" component={JournalEntryForm} />
         <Route path="/user" render={() => <UserProfile />} />
       </Switch>
-
-</div>
-)
+    </div>
+  )
 }
+
+
 
 
 export default MainContainer
