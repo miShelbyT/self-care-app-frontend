@@ -60,7 +60,7 @@ class LogIn extends React.Component {
               onChange={this.changeHandler}>
             </input>
 
-            <button className="act-button" >Log In</button>
+            <button className="welcome-button" >Log In</button>
           </form>
           :
           <button>Click Here To Log In</button>

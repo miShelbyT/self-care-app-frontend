@@ -9,9 +9,9 @@ class UserProfile extends React.Component {
 
 
   state = {
-    name: "",
-    city: "",
-    email_address: "",
+    name: this.props.name,
+    city: this.props.city,
+    email_address: this.props["email_address"],
     beenClicked: false
   }
 

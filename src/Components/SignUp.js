@@ -85,10 +85,10 @@ class SignUp extends React.Component {
               onChange={this.changeHandler}>
             </input>
 
-            <button className="act-button">Sign Up</button>
+            <button className="welcome-button">Sign Up</button>
           </form>
           :
-          <button className="act-button" onClick={this.clickHandler}>...Or Click Here To Sign Up</button>
+          <button className="welcome-button" onClick={this.clickHandler}>...Or Click Here To Sign Up</button>
         }
 
       </div>

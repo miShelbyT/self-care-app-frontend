@@ -8,7 +8,7 @@ function Welcome() {
   return (
     <div>
       <div>
-        <div>
+        <div className=".container">
           <LogIn />
           <SignUp />
         </div>

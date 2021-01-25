@@ -25,18 +25,18 @@ class JournalEntryForm extends React.Component {
     for (i = 0; i < this.props.activities.length; i++) {
       activitiesArray.push(this.props.activities[i].name)
     }
-    if (this.props.journalEntries.length > 0){
+    if (this.props.journalEntries.length > 0) {
       // console.log("i have journal entries")
       let j
       for (j = 0; j < this.props.journalEntries.length; j++) {
         activitiesArray.push(this.props.journalEntries[j]["user_activity"].activity_name)
-    } 
-    // filtered out null attribute names
-    let truthyActivitiesArray = activitiesArray.filter(activity => activity);
-    // console.log(truthyActivitiesArray)
-    return truthyActivitiesArray
+      }
+      // filtered out null attribute names
+      let truthyActivitiesArray = activitiesArray.filter(activity => activity);
+      // console.log(truthyActivitiesArray)
+      return truthyActivitiesArray
     }
-    else{
+    else {
       return activitiesArray
     }
   }
@@ -147,15 +147,14 @@ class JournalEntryForm extends React.Component {
                 onChange={this.changeHandler} />
               <br></br><br></br>
 
-              <label>Length of Time: </label>
+              <label>Length of Time (minutes): </label>
               <input
                 type="number"
                 name="length_of_time"
-                placeholder="length of time of activity goes here..."
+                placeholder="ex. 20 (minutes)..."
                 value={this.state["length_of_time"]}
                 onChange={this.changeHandler} />
               <br></br><br></br>
-
               <label>Comments: </label>
               <textarea
                 name="comments"

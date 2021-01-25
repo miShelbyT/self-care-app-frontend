@@ -21,23 +21,23 @@ class JournalEntriesContainer extends React.Component {
     // }
   }
 
-  renderJournalEntries(){
+  renderJournalEntries() {
     return this.props.journalEntries.map(journalObj => < JournalEntryCard journal={journalObj} key={journalObj.id} />)
   }
 
 
-  onChange = (e)=> {
+  onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value })
 
   }
 
 
-  
 
-  filterActivityByDate = (a,b) => {
-  // Turn your strings into dates, and then subtract them
-  // to get a value that is either negative, positive, or zero.
-  return new Date(b.date) - new Date(a.date);
+
+  filterActivityByDate = (a, b) => {
+    // Turn your strings into dates, and then subtract them
+    // to get a value that is either negative, positive, or zero.
+    return new Date(b.date) - new Date(a.date);
   }
 
 
@@ -57,7 +57,7 @@ class JournalEntriesContainer extends React.Component {
                 <Affirmations />
                 <h1>My Self-Care Activities:</h1>
                 <div>
-                  <form className="form" style={{ width: 400 }}>
+                  <form className="form">
                     <label>Filter Activity By Name:</label>
                     <input type="text"
                       name="name"
@@ -69,7 +69,13 @@ class JournalEntriesContainer extends React.Component {
                 <div className="container" >
                   {this.renderJournalEntries()}
                 </div>
-              </div> : <h1>You do not have any activities (yet)....</h1>
+              </div> :
+              <>
+                <div className="journal-entries">
+                  <Affirmations />
+                  <h1>You do not have any activities (yet)....</h1>
+                </div>
+              </>
 
             }
           </>
