@@ -20,6 +20,7 @@ class JournalEntryCard extends React.Component {
   }
 
   deleteEntry = () => {
+    alert("Are You Sure You Want To Delete This Entry?")
     this.props.deleteHandler(this.props.journal.id)
   }
   render() {
@@ -30,12 +31,11 @@ class JournalEntryCard extends React.Component {
         <div className="journal-entry-card">
           <div className="card-contents">
             {/* user_activity might have an id that corresponds to an activity.name or user_activity might have an original name which should be user_activity["activity_name"] */}
-            {this.props.journal["user_activity"]["activity_name"] ?
-              <h3>{this.props.journal["user_activity"]["activity_name"]}</h3> : <p>placeholder</p>
-              // <h3>{this.props.journal["user_activity"].activity.name}</h3>
+            {this.props.journal["user_activity"].activity ?
+              <h3>{this.props.journal["user_activity"].activity.name}</h3> : 
+              <h3>{this.props.journal["user_activity"]["activity_name"]}</h3>
             }
-            {/* <p>placeholder</p> */}
-
+            
             <h4>{this.changeDate(this.props.journal.date)}</h4>
             <h4>{this.props.journal["length_of_time"]} minutes</h4>
             <p>{this.props.journal.comments}</p>

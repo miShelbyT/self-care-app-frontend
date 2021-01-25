@@ -41,7 +41,7 @@ class LogIn extends React.Component {
 
         {this.state.beenClicked ?
 
-          <form onSubmit={this.submitHandler}>
+          <form onSubmit={this.submitHandler} className="form">
             <label>UserName: </label>
             <input
               type="text"

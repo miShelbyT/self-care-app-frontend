@@ -42,13 +42,13 @@ class SignUp extends React.Component {
 
 
   render() {
-console.log(this.state.beenClicked)
+// console.log(this.state.beenClicked)
     return (
       <div>
 
         {this.state.beenClicked ?
 
-          <form onSubmit={this.submitHandler}>
+          <form onSubmit={this.submitHandler} className="form">
             <label>UserName: </label>
             <input
               type="text"

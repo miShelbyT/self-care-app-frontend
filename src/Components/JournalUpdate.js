@@ -46,7 +46,7 @@ class JournalUpdateForm extends React.Component {
       <div className="modal-container">
        <div className="modal-content">{this.props.children}
       
-        <form onSubmit={this.submitHandler}>
+        <form onSubmit={this.submitHandler} >
           <label>Click Here To Update Journal Entry: </label>
           <br></br><br></br>
 

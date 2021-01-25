@@ -7,7 +7,7 @@ function Welcome() {
 
   return (
     <div>
-      <div className="form">
+      <div>
         <div>
           <LogIn />
           <SignUp />

@@ -1,4 +1,4 @@
-import { GET_ACTIVITIES, GET_AFFIRMATION, GET_JOURNAL_ENTRIES, POST_NEW_JOURNAL_ENTRY, LOG_IN, SIGN_UP, LOG_OUT, DELETE_ENTRY, UPDATE_JOURNAL_OBJ } from './actionTypes'
+import { GET_ACTIVITIES, GET_AFFIRMATION, GET_JOURNAL_ENTRIES, POST_NEW_JOURNAL_ENTRY, LOG_IN, SIGN_UP, LOG_OUT, DELETE_ENTRY, UPDATE_JOURNAL_OBJ, UPDATE_USER, DELETE_USER } from './actionTypes'
 
 export const getActivities = () => {
   return function (dispatch) {
@@ -30,6 +30,7 @@ export const getEntries = (userId) => {
       .then(journalArray => {
         // console.log(journalArray)
         let myJournalArray = journalArray.filter(journalObj => journalObj["user_id"] === userId)
+        // console.log(userId)
         dispatch({ type: GET_JOURNAL_ENTRIES, payload: myJournalArray })
       })
   }
@@ -49,7 +50,7 @@ export const postUserActivityAndJournalEntry = (userActivityObj, journalEntryObj
     })
       .then(r => r.json())
       .then(newObj => {
-        console.log("join table object returned from fetch", newObj)
+        // console.log("join table object returned from fetch", newObj)
         addJournalEntry(journalEntryObj, newObj.id, dispatch, history)
       })
 
@@ -199,6 +200,47 @@ export const signUp = (userObj) => {
 export const logOut = () => {
   //remove user data from local storage
   localStorage.removeItem("USER_DATA")
-  console.log("user logged out")
+  // console.log("user logged out")
   return { type: LOG_OUT }
+}
+
+
+// update userObj
+export const updateHandler = (userId, updatedObj) => {
+  // console.log(userId)
+  return function(dispatch) {
+    fetch(`http://localhost:3000/api/v1/users/${userId}`, {
+method: "PATCH",
+headers: {
+  "Content-Type": "application/json",
+  "Accepts": "application/json"
+},
+body: JSON.stringify({name: updatedObj.name, city: updatedObj.city, email_address: updatedObj["email_address"]})
+})
+.then(r=> r.json())
+.then(returnedUser => {
+  // console.log("returned from fetch", returnedUser)
+  localStorage.setItem("USER_DATA", JSON.stringify(returnedUser))
+  dispatch({type: UPDATE_USER, payload: returnedUser})
+})
+.catch(console.log)
+  }
+}
+
+export const deleteHandler = (userId) => {
+  return function(dispatch) {
+    fetch(`http://localhost:3000/api/v1/users/${userId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "Accepts": "application/json"
+      }
+    })
+      .then(r=> r.json())
+      .then(data => {
+        // console.log(data)
+        dispatch({type: DELETE_USER})
+      })
+
+    }
 }

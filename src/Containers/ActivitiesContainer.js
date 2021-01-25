@@ -2,6 +2,7 @@ import React from 'react'
 import ActivityCard from '../Components/ActivityCard'
 import { connect } from 'react-redux'
 import { getActivities } from '../redux/actions'
+import { Redirect } from 'react-router-dom'
 
 class ActivitiesContainer extends React.Component {
 
@@ -15,14 +16,21 @@ class ActivitiesContainer extends React.Component {
   render() {
     // console.log(this.props.activities)
     return (
-      <div>
-        <h2>Examples of Self Care Activities:</h2>
-        <div className="container" >
-          {this.props.activities.length > 0 ?
-            this.renderActivities() : <h1>Loading....</h1>}
-        </div>
 
-      </div>
+      <>
+        {this.props.user ?
+          <div>
+            <h2>Examples of Self Care Activities:</h2>
+            <div className="container" >
+              {this.props.activities.length > 0 ?
+                this.renderActivities() : <h1>Loading....</h1>}
+            </div>
+
+          </div>
+          :
+          <Redirect to='/welcome' />}
+      </>
+
     )
   }
 

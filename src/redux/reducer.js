@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { GET_ACTIVITIES, GET_AFFIRMATION, GET_JOURNAL_ENTRIES, POST_NEW_JOURNAL_ENTRY, LOG_IN, SIGN_UP, LOG_OUT, DELETE_ENTRY, UPDATE_JOURNAL_OBJ } from './actionTypes'
+import { GET_ACTIVITIES, GET_AFFIRMATION, GET_JOURNAL_ENTRIES, POST_NEW_JOURNAL_ENTRY, LOG_IN, SIGN_UP, LOG_OUT, DELETE_ENTRY, UPDATE_JOURNAL_OBJ, UPDATE_USER, DELETE_USER } from './actionTypes'
 
 
 const defaultState = {
@@ -7,7 +7,7 @@ const defaultState = {
   journalEntries: [],
   affirmation: "",
   userId: null,
-  userObj: {}
+  userObj: null
 
 }
 
@@ -57,6 +57,8 @@ function userIdReducer(currentState = defaultState.userId, action) {
       return action.payload.id
     case LOG_OUT:
       return null
+    case DELETE_USER:
+      return null
     default:
       return currentState
   }
@@ -69,6 +71,10 @@ function userObjReducer(currentState = defaultState.userObj, action) {
     case SIGN_UP:
       return action.payload
     case LOG_OUT:
+      return null
+    case UPDATE_USER:
+      return action.payload
+    case DELETE_USER:
       return null
     default:
       return currentState

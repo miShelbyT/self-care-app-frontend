@@ -2,8 +2,17 @@ import React from 'react'
 import { NavLink, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { logIn, logOut } from '../redux/actions'
-
 class Header extends React.Component {
+
+
+  state = {
+    beenClicked: false
+  }
+
+
+  menuClick = () => {
+    this.setState({ beenClicked: !this.state.beenClicked })
+  }
 
   componentDidMount = () => {
     //this will run on refresh, passing undefined to your logIn action.
@@ -16,41 +25,23 @@ class Header extends React.Component {
   }
 
   render() {
-    // console.log(this.props.userObj)
+    // console.log(this.state.beenClicked)
     return (
       <div className="header">
         <div className="take-care">
           <NavLink to='/journal-entries'>
             {this.props.userObj ? <h1>Take Care, {this.props.userObj.name}</h1> : <h1>Take Care</h1>}
-
-            <h5>A Self-Care Journal</h5>
+            <p>A Self-Care Journal</p>
+            
           </NavLink>
-        </div>
+          </div>
 
+          <NavLink to="/menu">
+            <label htmlFor="hamburger" className="burger" onClick={this.menuClick}>&#9776;</label>
+          </NavLink>
+        
 
-        <NavLink to="/activities">
-          <div className="nav-component" >Activities</div>
-        </NavLink>
-
-        <NavLink to="/journal-new">
-          <div className="nav-component" >New Journal Entry</div>
-        </NavLink>
-
-        <NavLink to="/journal-entries">
-          <div className="nav-component" >Journal Entries</div>
-        </NavLink>
-
-        <NavLink to="/user">
-          <div className="nav-component" >User Profile</div>
-        </NavLink>
-
-        <NavLink to="/welcome">
-          <div className="nav-component" onClick={this.logout}>Log Out</div>
-        </NavLink> 
-
-        {this.props.userObj? <Redirect to="/journal-entries" /> : <Redirect to="/welcome" />}
-
-        <hr></hr>
+        {this.props.userObj ? <Redirect to="/journal-entries" /> : <Redirect to="/welcome" />}
       </div>
 
     )
