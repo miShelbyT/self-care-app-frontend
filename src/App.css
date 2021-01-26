@@ -123,11 +123,11 @@ body{
 
 
 .activity-card{
-  height: 285px;
-  width: 350px;
+  height: 320px;
+  width: 385px;
   text-align:center;
-  padding: 15px 30px 40px 30px;
-  margin: 25px;
+  padding: 20px;
+  margin: 20px;
   border: 1px solid grey;
   border-radius: 6px;
   box-shadow: 5px 10px #39315f;
@@ -139,7 +139,7 @@ body{
   width: 350px;
   text-align:center;
   padding: 15px 30px 40px 30px;
-  margin: 25px;
+  margin: 20px;
   border: 1px solid grey;
   border-radius: 6px;
   box-shadow: 5px 10px #39315f;
