@@ -29,15 +29,18 @@ class Header extends React.Component {
     return (
       <div className="header">
         <div className="take-care">
-          <NavLink to='/journal-entries'>
-            {this.props.userObj ? <h1>Take Care, {this.props.userObj.name}</h1> : <h1>Take Care</h1>}
+          
+            {this.props.userObj ? <h1>Take Care, {this.props.userObj.name}</h1> : 
+            <>
+            <h1>Take Care</h1>
             <p>A Self-Care Journal</p>
+            </>}
             
-          </NavLink>
+            
           </div>
 
           <NavLink to="/menu">
-            <label htmlFor="hamburger" className="burger" onClick={this.menuClick}>&#9776;</label>
+            <label htmlFor="hamburger" className="burger" onClick={this.menuClick}>&#9776; Menu</label>
           </NavLink>
         
 

@@ -19,7 +19,7 @@ class ActivitiesContainer extends React.Component {
 
       <>
         {this.props.user ?
-          <div>
+          <div className="activities">
             <h2>Examples of Self Care Activities:</h2>
             <div className="container" >
               {this.props.activities.length > 0 ?

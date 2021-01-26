@@ -75,11 +75,13 @@ class JournalEntryForm extends React.Component {
       length_of_time: parseInt(this.state["length_of_time"]),
       comments: this.state.comments
     }
-
-    this.props.postUserActivityAndJournalEntry(activityObj, newJournalEntryObj, this.props.history)
-    // console.log(this.props.userActivityObj.id)
-    // this.props.addNewJournalEntry(newJournalEntryObj)
-
+if(this.state.comments !== "") {
+  this.props.postUserActivityAndJournalEntry(activityObj, newJournalEntryObj, this.props.history)
+  // console.log(this.props.userActivityObj.id)
+  // this.props.addNewJournalEntry(newJournalEntryObj)
+} else {
+  alert("oops there are no comments in your journal entry. please try again.")
+}
 
     this.setState({
       activity: "",
@@ -108,7 +110,7 @@ class JournalEntryForm extends React.Component {
             {this.props.activities.length > 0 && this.props.journalEntries.length > 0 ? <h4>Hi {this.props.user.name}! Please enter your next journal entry here:</h4> : <h4>Hi {this.props.user.name}, welcome! Please enter your journal entry here:</h4>}
 
             <form onSubmit={this.submitHandler}>
-              <label>Click Here To Add New Activity: </label>
+              <label className="checkboxlabel">Click Here To Add New Activity: </label>
               <input type="checkbox" id="beenClicked" onClick={this.clickHandler} />
               <br></br><br></br>
               {this.state.beenClicked ?
@@ -147,7 +149,7 @@ class JournalEntryForm extends React.Component {
                 onChange={this.changeHandler} />
               <br></br><br></br>
 
-              <label>Length of Time (minutes): </label>
+              <label>Length of Time <br></br>(in minutes): </label>
               <input
                 type="number"
                 name="length_of_time"

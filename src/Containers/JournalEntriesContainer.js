@@ -10,7 +10,7 @@ class JournalEntriesContainer extends React.Component {
 
 
   state = {
-    name: ""
+    searchTerm: ""
   }
 
   componentDidMount() {
@@ -22,7 +22,7 @@ class JournalEntriesContainer extends React.Component {
   }
 
   renderJournalEntries() {
-    return this.props.journalEntries.map(journalObj => < JournalEntryCard journal={journalObj} key={journalObj.id} />)
+    return this.filterEntriesByDate().map(journalObj => < JournalEntryCard journal={journalObj} key={journalObj.id} />)
   }
 
 
@@ -31,20 +31,45 @@ class JournalEntriesContainer extends React.Component {
 
   }
 
-
-
-
-  filterActivityByDate = (a, b) => {
-    // Turn your strings into dates, and then subtract them
-    // to get a value that is either negative, positive, or zero.
-    return new Date(b.date) - new Date(a.date);
+  changeDate(str) {
+    let updatedDate = new Date(str.split('-'))
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
+    return updatedDate.toLocaleDateString('en-US', options)
   }
 
 
 
+filterEntriesByDate = () => {
+return this.props.journalEntries.filter(entry => this.changeDate(entry.date).toLowerCase().includes(this.state.searchTerm.toLowerCase()))
+
+}
+
+
+// tried to filter entries by name but optional join table caused so many null values that it was too hard for this time frame... maybe i'll do it in Mod 6!!
+  // filterEntries = () => {
+  //   let finalArray = []
+  //   // first iterating thru for activity_name from join table db
+  //   let filteredArray = this.props.journalEntries.filter(entry => entry.user_activity.activity_name !== null)
+  //   let otherFilteredArray = this.props.journalEntries.filter(entry => entry.user_activity.activity !== null)
+  //   // let otherFinalArray = []
+
+  //   console.log(filteredArray)
+  //     if (filteredArray.length >= 1) {
+  //       finalArray = filteredArray.filter(entry => entry.user_activity.activity_name.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
+  //       console.log(finalArray)
+  //       return finalArray
+  //     }
+  //   if (finalArray.length === 0) {
+  //     // then iterating thru for activity.name from activity db
+  //       filteredArray = otherFilteredArray.filter(entry => entry.user_activity.activity.name.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
+  //       console.log(finalArray)
+  //       return finalArray
+  //   }
+  // }
+
+
   render() {
-    // console.log(this.renderFilteredEntries())
-    // console.log(this.filterActivityByDate())
+   
     return (
       <>
 
@@ -57,11 +82,11 @@ class JournalEntriesContainer extends React.Component {
                 <Affirmations />
                 <h1>My Self-Care Activities:</h1>
                 <div>
-                  <form className="form">
-                    <label>Filter Activity By Name:</label>
+                  <form className="form filter">
+                    <label>Search Activity By Date:</label>
                     <input type="text"
-                      name="name"
-                      value={this.state.name}
+                      name="searchTerm"
+                      value={this.state.searchTerm}
                       onChange={this.onChange}
                     ></input>
                   </form>
@@ -87,17 +112,6 @@ class JournalEntriesContainer extends React.Component {
         }
 
       </>
-
-
-
-
-
-
-
-
-
-
-
 
 
     )
