@@ -102,7 +102,7 @@ body{
 /* div that encloses the fetched affirmations */
 .div-affirm{
   padding:1% 5%;
-  border: 2px solid grey;
+  /* border: 2px solid grey; */
   border-radius: 7px;
 }
 

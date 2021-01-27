@@ -157,8 +157,8 @@ export const logIn = (userObj) => {
             localStorage.setItem("USER_DATA", JSON.stringify(data))
             dispatch({ type: LOG_IN, payload: data })
           } else {
-            console.log("user not found")
-            window.alert("Wrong Username or Password Please Try Again")
+            // console.log("user not found")
+            alert("Wrong Username or Password Please Try Again")
           }
         })
         .catch(console.log)

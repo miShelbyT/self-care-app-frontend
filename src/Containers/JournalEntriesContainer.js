@@ -39,37 +39,37 @@ class JournalEntriesContainer extends React.Component {
 
 
 
-filterEntriesByDate = () => {
-return this.props.journalEntries.filter(entry => this.changeDate(entry.date).toLowerCase().includes(this.state.searchTerm.toLowerCase()))
+  filterEntriesByDate = () => {
+    return this.props.journalEntries.filter(entry => this.changeDate(entry.date).toLowerCase().includes(this.state.searchTerm.toLowerCase()))
 
-}
+  }
 
 
-// tried to filter entries by name but optional join table caused so many null values that it was too hard for this time frame... maybe i'll do it in Mod 6!!
+  // tried to filter entries by name but optional join table caused so many null values that it was too hard for this time frame... maybe i'll do it in Mod 6!!
+
   // filterEntries = () => {
+ 
   //   let finalArray = []
   //   // first iterating thru for activity_name from join table db
-  //   let filteredArray = this.props.journalEntries.filter(entry => entry.user_activity.activity_name !== null)
-  //   let otherFilteredArray = this.props.journalEntries.filter(entry => entry.user_activity.activity !== null)
-  //   // let otherFinalArray = []
-
-  //   console.log(filteredArray)
-  //     if (filteredArray.length >= 1) {
-  //       finalArray = filteredArray.filter(entry => entry.user_activity.activity_name.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
-  //       console.log(finalArray)
-  //       return finalArray
-  //     }
+  //   let filteredArray = this.props.journalEntries.filter(entry => entry.user_activity.activity_name)
+ 
+  //   if (filteredArray.length > 0) {
+  //     finalArray = filteredArray.filter(entry => entry.user_activity.activity_name.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
+  //     console.log(finalArray)
+  //     return finalArray
+  //   }
   //   if (finalArray.length === 0) {
   //     // then iterating thru for activity.name from activity db
-  //       filteredArray = otherFilteredArray.filter(entry => entry.user_activity.activity.name.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
-  //       console.log(finalArray)
-  //       return finalArray
+  //     let filteredArray = this.props.journalEntries.filter(entry => entry.user_activity.activity)
+  //     let finalArray = filteredArray.filter(entry => entry.user_activity.activity.name.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
+  //     console.log(finalArray)
+  //     return finalArray
   //   }
   // }
 
 
   render() {
-   
+
     return (
       <>
 

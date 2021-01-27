@@ -34,7 +34,7 @@ class JournalEntryCard extends React.Component {
             {this.props.journal["user_activity"].activity ?
               <>
                 <h3>{this.props.journal["user_activity"].activity.name}</h3>
-                <sup>{this.props.journal["user_activity"].activity.category}</sup>
+                <sup>({this.props.journal["user_activity"].activity.category})</sup>
               </> :
               <h3>{this.props.journal["user_activity"]["activity_name"]}</h3>
             }
