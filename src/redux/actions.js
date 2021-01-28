@@ -238,7 +238,7 @@ export const deleteHandler = (userId) => {
     })
       .then(r=> r.json())
       .then(data => {
-        // console.log(data)
+        localStorage.removeItem("USER_DATA")
         dispatch({type: DELETE_USER})
       })
 
