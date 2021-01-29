@@ -29,7 +29,9 @@ class JournalEntryForm extends React.Component {
       // console.log("i have journal entries")
       let j
       for (j = 0; j < this.props.journalEntries.length; j++) {
-        activitiesArray.push(this.props.journalEntries[j]["user_activity"].activity_name)
+        if (!Object.values(this.props.journalEntries).includes(this.props.journalEntries[j]["user_activity"].activity_name)) {
+          activitiesArray.push(this.props.journalEntries[j]["user_activity"].activity_name)
+        }
       }
       // filtered out null attribute names
       let truthyActivitiesArray = activitiesArray.filter(activity => activity);
@@ -70,25 +72,26 @@ class JournalEntryForm extends React.Component {
 
     let newJournalEntryObj = {
       user_id: this.props.userId,
-      user_activity_id: "",
+      user_activity_id: null,
       date: this.state.date,
       length_of_time: parseInt(this.state["length_of_time"]),
       comments: this.state.comments
     }
-if(this.state.comments !== "") {
-  this.props.postUserActivityAndJournalEntry(activityObj, newJournalEntryObj, this.props.history)
-  // console.log(this.props.userActivityObj.id)
-  // this.props.addNewJournalEntry(newJournalEntryObj)
-} else {
-  alert("oops there are no comments in your journal entry. please try again.")
-}
+    if (!Object.values(newJournalEntryObj).includes("")) {
+      this.props.postUserActivityAndJournalEntry(activityObj, newJournalEntryObj, this.props.history)
+      this.setState({
+        activity: "",
+        date: "",
+        length_of_time: "",
+        comments: ""
+      })
+      // console.log(this.props.userActivityObj.id)
+      // this.props.addNewJournalEntry(newJournalEntryObj)
+    } else {
+      alert("oops your journal entry is incomplete. please try again.")
+    }
 
-    this.setState({
-      activity: "",
-      date: "",
-      length_of_time: "",
-      comments: ""
-    })
+
   }
 
   clickHandler = () => {

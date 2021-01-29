@@ -38,8 +38,10 @@ function journalReducer(currentState = defaultState.journalEntries, action) {
       return [...currentState, action.payload]
     case UPDATE_JOURNAL_OBJ:
       let newArray = [...currentState]
+      // console.log(newArray)
       let journalindex = newArray.findIndex(entry => entry.id === action.payload.id)
       newArray[journalindex] = action.payload
+      // console.log(newArray)
       return newArray
     case DELETE_ENTRY:
       return currentState.filter(journalEntry => journalEntry.id !== action.payload)

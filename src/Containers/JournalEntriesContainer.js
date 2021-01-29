@@ -80,7 +80,7 @@ class JournalEntriesContainer extends React.Component {
             {this.props.user.id && this.props.journalEntries.length > 0 ?
               <div className="journal-entries">
                 <Affirmations />
-                <h1>My Self-Care Activities:</h1>
+                <h1>My Journal Entries:</h1>
                 <div>
                   <form className="form filter">
                     <label>Search Activity By Date:</label>
@@ -98,7 +98,7 @@ class JournalEntriesContainer extends React.Component {
               <>
                 <div className="journal-entries">
                   <Affirmations />
-                  <h1>You do not have any activities (yet)....</h1>
+                  <h1>You do not have any journal entries (yet)....</h1>
                 </div>
               </>
 
