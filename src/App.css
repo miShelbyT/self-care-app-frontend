@@ -237,6 +237,10 @@ body{
   width: 215px;
 }
 
+.filter input {
+  margin: 15px;
+}
+
 
 
 label {
