@@ -29,7 +29,7 @@ class JournalEntryForm extends React.Component {
       // console.log("i have journal entries")
       let j
       for (j = 0; j < this.props.journalEntries.length; j++) {
-        if (!Object.values(this.props.journalEntries).includes(this.props.journalEntries[j]["user_activity"].activity_name)) {
+        if (!activitiesArray.includes(this.props.journalEntries[j]["user_activity"].activity_name)) {
           activitiesArray.push(this.props.journalEntries[j]["user_activity"].activity_name)
         }
       }

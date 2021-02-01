@@ -28,7 +28,7 @@ function affirmationReducer(currentState = defaultState.affirmation, action) {
       return currentState
   }
 }
-
+// need to fix updating state in UPDATE - replacing the one index wipes out the join table and activity data
 function journalReducer(currentState = defaultState.journalEntries, action) {
   switch (action.type) {
     case GET_JOURNAL_ENTRIES:
@@ -40,7 +40,9 @@ function journalReducer(currentState = defaultState.journalEntries, action) {
       let newArray = [...currentState]
       // console.log(newArray)
       let journalindex = newArray.findIndex(entry => entry.id === action.payload.id)
-      newArray[journalindex] = action.payload
+      newArray[journalindex].date = action.payload.date
+      newArray[journalindex]["length_of_time"] = action.payload["length_of_time"]
+      newArray[journalindex].comments = action.payload.comments
       // console.log(newArray)
       return newArray
     case DELETE_ENTRY:
