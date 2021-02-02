@@ -22,7 +22,7 @@ class JournalEntriesContainer extends React.Component {
   }
 
   renderJournalEntries() {
-    
+
     return this.filterEntriesByDate().map(journalObj => < JournalEntryCard journal={journalObj} key={journalObj.id} />)
   }
 
@@ -47,23 +47,28 @@ class JournalEntriesContainer extends React.Component {
 
   // still working thru issues to get a functioning filter by activity
   filterEntriesByActivity = () => {
-
+    let filteredArray = []
     let finalArray = []
-    // first iterating thru for activity_name from join table db
-    let filteredArray = this.props.journalEntries.filter(entry => entry.user_activity.activity_name)
 
-    if (filteredArray.length > 0) {
-      finalArray = filteredArray.filter(entry => entry.user_activity.activity_name.toLowerCase().includes(this.state.activitySearch.toLowerCase()))
-      console.log(finalArray)
+    this.props.journalEntries.map(journalEntryObj => {
+      // if(journalEntryObj.user_activity.activity){
+      //   filteredArray.push(journalEntryObj)
+      //   console.log(filteredArray)
+      //   finalArray = filteredArray.filter(entry => entry.user_activity.activity.name.toLowerCase().includes(this.state.activitySearch.toLowerCase()))
+      // }
+ 
+      if (finalArray.length === 0 && journalEntryObj.user_activity.activity_name) {
+        // then iterating thru for activity_name from activity db
+        filteredArray.push(journalEntryObj)
+        console.log(filteredArray)
+        // finalArray = filteredArray.filter(entry => entry.user_activity.activity_name.toLowerCase().includes(this.state.activitySearch.toLowerCase()))
+        // console.log(finalArray)
+  
+      }
+      return finalArray
 
-    }
-    if (finalArray.length === 0) {
-      // then iterating thru for activity.name from activity db
-      let filteredArray = this.props.journalEntries.filter(entry => entry.user_activity.activity)
-      let finalArray = filteredArray.filter(entry => entry.user_activity.activity.name.toLowerCase().includes(this.state.activitySearch.toLowerCase()))
-      console.log(finalArray)
+    })
 
-    }
   }
 
 
@@ -71,7 +76,7 @@ class JournalEntriesContainer extends React.Component {
 
 
   render() {
-
+console.log(this.filterEntriesByActivity())
     return (
       <>
 
@@ -91,7 +96,7 @@ class JournalEntriesContainer extends React.Component {
                       value={this.state.dateSearch}
                       onChange={this.onChange}
                     ></input>
-                    
+
                     <label>Filter By Activity:</label>
                     <input type="text"
                       name="activitySearch"

@@ -43,9 +43,12 @@ class JournalEntryCard extends React.Component {
             <h4>{this.props.journal["length_of_time"]} minutes</h4>
             <p>{this.props.journal.comments}</p>
 
-            <button className="act-button" onClick={this.deleteEntry} >Delete Activity</button>
+            <div className="two-buttons">
+              <button className="act-button" onClick={this.deleteEntry} >Delete Activity</button>
 
-            <button className="act-button" onClick={this.showModal} >{this.state.show ? "Click To Go Back" : "Update Activity"}</button>
+              <button className="act-button" onClick={this.showModal} >{this.state.show ? "Click To Go Back" : "Update Activity"}</button>
+            </div>
+
 
             <JournalUpdate onClose={this.showModal} show={this.state.show} journal={this.props.journal}>{this.props.children}</JournalUpdate>
           </div>
