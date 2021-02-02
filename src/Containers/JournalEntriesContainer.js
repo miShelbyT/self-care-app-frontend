@@ -22,8 +22,18 @@ class JournalEntriesContainer extends React.Component {
   }
 
   renderJournalEntries() {
+if(this.state.activitySearch === "") {
+  return this.filterEntriesByDate().map(journalObj => < JournalEntryCard journal={journalObj} key={journalObj.id} />)
 
-    return this.filterEntriesByDate().map(journalObj => < JournalEntryCard journal={journalObj} key={journalObj.id} />)
+} else if(this.state.dateSearch === ""){
+  return this.filterEntriesByActivity().map(journalObj => < JournalEntryCard journal={journalObj} key={journalObj.id} />)
+
+} else if(this.state.activitySearch !== "" && this.state.dateSearch !== "") {
+  alert("Oops you cannot search by both Date AND Activity. Please try again.")
+  this.setState({dateSearch: "", activitySearch: ""})
+  return this.props.journalEntries.map(journalObj => < JournalEntryCard journal={journalObj} key={journalObj.id} />)
+
+}
   }
 
 
@@ -45,30 +55,27 @@ class JournalEntriesContainer extends React.Component {
 
   }
 
-  // still working thru issues to get a functioning filter by activity
+  // still working thru issues to get a functioning filter by activity - so far I can only filter by activity.name but not activity_name
   filterEntriesByActivity = () => {
     let filteredArray = []
     let finalArray = []
 
-    this.props.journalEntries.map(journalEntryObj => {
-      // if(journalEntryObj.user_activity.activity){
-      //   filteredArray.push(journalEntryObj)
-      //   console.log(filteredArray)
-      //   finalArray = filteredArray.filter(entry => entry.user_activity.activity.name.toLowerCase().includes(this.state.activitySearch.toLowerCase()))
-      // }
- 
-      if (finalArray.length === 0 && journalEntryObj.user_activity.activity_name) {
-        // then iterating thru for activity_name from activity db
+     this.props.journalEntries.map(journalEntryObj => {
+      if (journalEntryObj.user_activity.activity) {
+        // first iterating thru for activity.name from activity db
         filteredArray.push(journalEntryObj)
-        console.log(filteredArray)
-        // finalArray = filteredArray.filter(entry => entry.user_activity.activity_name.toLowerCase().includes(this.state.activitySearch.toLowerCase()))
-        // console.log(finalArray)
-  
+        // console.log(filteredArray)
+        finalArray = filteredArray.filter(entry => entry.user_activity.activity.name.toLowerCase().includes(this.state.activitySearch.toLowerCase()))
+        if (finalArray.length === 0 && journalEntryObj.user_activity.activity_name) {
+          // then iterating thru for activity_name from activity db
+          filteredArray.push(journalEntryObj)
+         
+          finalArray = filteredArray.filter(entry => entry.user_activity.activity_name.toLowerCase().includes(this.state.activitySearch.toLowerCase()))
+          console.log("activity_name", this.state.activitySearch)
+        }
       }
-      return finalArray
-
     })
-
+    return finalArray
   }
 
 
@@ -76,7 +83,7 @@ class JournalEntriesContainer extends React.Component {
 
 
   render() {
-console.log(this.filterEntriesByActivity())
+    console.log(this.filterEntriesByActivity())
     return (
       <>
 
