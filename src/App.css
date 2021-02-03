@@ -1,15 +1,19 @@
-
 /* colors are as follows
 color: #443545;
 color: #3E7079;
 color: #008F81;
 color: grey;
 color: #5297b3;
-color: #ADE8FF;
+color: #95d8f3; 
 color: #f8f8f8;
 color: #39315f;
 
 */
+/* resetting headers with less margin/padding so i can set them up manually to my liking */
+h1, h2, h3, h4 {
+  margin:0;
+  padding:0;
+  }
 
 body{
   text-align: center;
@@ -113,36 +117,30 @@ body{
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  /* position: relative; */
-
 }
 
 .journal-entries {
-  margin-top: 30px;
+  margin-top: 25px;
+} 
+
+.journal-entries h1 {
+  margin: 0.5em;
+} 
+
+
+.activities{
+  margin: 1.7em;
 }
 
-
-.activity-card{
-  height: 320px;
-  width: 385px;
-  text-align:center;
-  padding: 20px;
-  margin: 20px;
+.card{
+  height: 300px;
+  width: 390px;
+  padding: 1.7em;
+  margin: 1.7em;
+  line-height: 1.7em;
   border: 1px solid grey;
   border-radius: 6px;
-  box-shadow: 5px 10px #39315f;
-  background-color: #ADE8FF;
-}
-
-.journal-entry-card{
-  height: 350px;
-  width: 350px;
-  /* text-align:center; */
-  padding: 15px 30px 40px 30px;
-  margin: 20px;
-  border: 1px solid grey;
-  border-radius: 6px;
-  overflow: auto;
+  overflow: scroll;
   box-shadow: 5px 10px #39315f;
   background-color: #5297b3;
   text-align:center;
@@ -150,8 +148,15 @@ body{
   vertical-align: bottom;
 }
 
+.card h3{
+  font-size: 20px;
+}
+
+.card p{
+line-height: 1.7em;
+}
+
 .modal-container {
-  /* display: none; */
   position: fixed;
   z-index: 1;
   padding-top: 100px;
@@ -179,19 +184,8 @@ body{
   
 }
 
-/* user profile card */
-.profile-card{
-  height: auto;
-  width: auto;
-  padding: 30px;
-  margin-top: 95px;
-  border: 1px solid grey;
-  border-radius: 6px;
-  box-shadow: 5px 10px #39315f;
-  background-color: #3E7079;
-}
 
-.profile-card > h3 {
+.card > h3 {
   font-family: 'Nothing You Could Do', cursive; 
 }
 
@@ -204,9 +198,20 @@ body{
   font-size: 18px;
 }
 
-.activity-card { transition: all .5s ease-in-out; }
-.activity-card :hover { transform: scale(1.1); }
+.activity { 
+  margin-top: 45px;
+  background-color: #95d8f3; 
+  height: 330px;
+}
 
+.profile{
+  margin-top: 45px;
+  background-color: #3E7079;
+}
+.profile h3{
+  margin-top: 15px;
+  padding: 0.2em;
+}
 
 
 /* handles login and sign up form and journal entry form */
@@ -371,7 +376,7 @@ input:focus:-ms-input-placeholder {
   border-radius: 8px;
 }
 
-/* button handles affirmations */
+/* button handles affirmations and user profile */
 .other-button {
   background-color: #443545;
   border: 2px solid grey;
@@ -382,6 +387,10 @@ input:focus:-ms-input-placeholder {
   text-decoration: none;
   font-size: 16px;
   border-radius: 8px;
+}
+
+.profile-button{
+margin-top: 65px;
 }
 
 /* button handles forms and journal cards */
@@ -396,6 +405,7 @@ input:focus:-ms-input-placeholder {
   display: inline-block;
   font-size: 16px;
   border-radius: 8px;  
+  margin-top: 30px;
 }
 
 /* .act-button:last-child{

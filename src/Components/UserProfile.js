@@ -57,12 +57,12 @@ class UserProfile extends React.Component {
           <>
             {!this.state.beenClicked ?
               <div className="container">
-                <div className="profile-card">
+                <div className="card profile">
                   <h3>Name: {this.props.user.name}</h3>
                   <h3>Hometown: {this.props.user.city}</h3>
                   <h3>Email Address: {this.props.user["email_address"]}</h3>
-                  <button className="other-button" onClick={this.beenClicked} >Update User</button>
-                  <button className="other-button" onClick={this.deleteHandler}>Delete User</button>
+                  <button className="other-button profile-button" onClick={this.beenClicked} >Update User</button>
+                  <button className="other-button profile-button" onClick={this.deleteHandler}>Delete User</button>
                 </div>
               </div> :
 

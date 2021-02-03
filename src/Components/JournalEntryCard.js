@@ -28,7 +28,7 @@ class JournalEntryCard extends React.Component {
     // console.log(this.props.journal["user_activity"].activity)
     return (
       <>
-        <div className="journal-entry-card">
+        <div className="card">
           <div className="card-contents">
             {/* user_activity might have an id that corresponds to an activity.name or user_activity might have an original name which should be user_activity["activity_name"] */}
             {this.props.journal["user_activity"].activity ?
