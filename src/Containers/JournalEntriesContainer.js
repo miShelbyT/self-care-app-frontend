@@ -22,18 +22,18 @@ class JournalEntriesContainer extends React.Component {
   }
 
   renderJournalEntries() {
-if(this.state.activitySearch === "") {
-  return this.filterEntriesByDate().map(journalObj => < JournalEntryCard journal={journalObj} key={journalObj.id} />)
+    if (this.state.activitySearch === "") {
+      return this.filterEntriesByDate().map(journalObj => < JournalEntryCard journal={journalObj} key={journalObj.id} />)
 
-} else if(this.state.dateSearch === ""){
-  return this.filterEntriesByActivity().map(journalObj => < JournalEntryCard journal={journalObj} key={journalObj.id} />)
+    } else if (this.state.dateSearch === "") {
+      return this.filterEntriesByActivity().map(journalObj => < JournalEntryCard journal={journalObj} key={journalObj.id} />)
 
-} else if(this.state.activitySearch !== "" && this.state.dateSearch !== "") {
-  alert("Oops you cannot search by both Date AND Activity. Please try again.")
-  this.setState({dateSearch: "", activitySearch: ""})
-  return this.props.journalEntries.map(journalObj => < JournalEntryCard journal={journalObj} key={journalObj.id} />)
+    } else if (this.state.activitySearch !== "" && this.state.dateSearch !== "") {
+      alert("Oops you cannot search by both Date AND Activity. Please try again.")
+      this.setState({ dateSearch: "", activitySearch: "" })
+      return this.props.journalEntries.map(journalObj => < JournalEntryCard journal={journalObj} key={journalObj.id} />)
 
-}
+    }
   }
 
 
@@ -55,26 +55,28 @@ if(this.state.activitySearch === "") {
 
   }
 
-  // still working thru issues to get a functioning filter by activity - so far I can only filter by activity.name but not activity_name
   filterEntriesByActivity = () => {
     let filteredArray = []
+    let otherFilteredArray = []
     let finalArray = []
-
-     this.props.journalEntries.map(journalEntryObj => {
-      if (journalEntryObj.user_activity.activity) {
+    let i
+    for (i = 0; i < this.props.journalEntries.length; i++) {
+      if (this.props.journalEntries[i].user_activity.activity) {
         // first iterating thru for activity.name from activity db
-        filteredArray.push(journalEntryObj)
+        filteredArray.push(this.props.journalEntries[i])
         // console.log(filteredArray)
-        finalArray = filteredArray.filter(entry => entry.user_activity.activity.name.toLowerCase().includes(this.state.activitySearch.toLowerCase()))
-        if (finalArray.length === 0 && journalEntryObj.user_activity.activity_name) {
-          // then iterating thru for activity_name from activity db
-          filteredArray.push(journalEntryObj)
-         
-          finalArray = filteredArray.filter(entry => entry.user_activity.activity_name.toLowerCase().includes(this.state.activitySearch.toLowerCase()))
-          console.log("activity_name", this.state.activitySearch)
-        }
+        filteredArray = filteredArray.filter(entry => entry.user_activity.activity.name.toLowerCase().includes(this.state.activitySearch.toLowerCase()))
+        // console.log(finalArray)
       }
-    })
+      if (this.props.journalEntries[i].user_activity.activity_name) {
+        // then iterating thru for activity_name from activity db
+        otherFilteredArray.push(this.props.journalEntries[i])
+        // console.log(otherFilteredArray)
+        otherFilteredArray = otherFilteredArray.filter(entry => entry.user_activity.activity_name.toLowerCase().includes(this.state.activitySearch.toLowerCase()))
+        // console.log("activity_name", this.state.activitySearch)
+      }
+      finalArray = [...filteredArray, ...otherFilteredArray]
+    }
     return finalArray
   }
 

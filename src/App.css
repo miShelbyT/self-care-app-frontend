@@ -145,8 +145,10 @@ body{
   box-shadow: 5px 10px #39315f;
   background-color: #5297b3;
   text-align:center;
-  display: table-cell;
-  vertical-align: bottom;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .card h3{
