@@ -171,6 +171,7 @@ body{
 .profile{
   margin-top: 45px;
   background-color: #3E7079;
+  display: flex;
 }
 
 
@@ -373,22 +374,22 @@ input:focus:-ms-input-placeholder {
   color: #3E7079;
 }
 
+
+/* buttons */
+
 /* handles log in sign up */
 .welcome-button {
   background-color: #443545;
   border: 2px solid #3E7079;
   color: #f8f8f8;
   padding: 5px 5px;
-  margin: 20px;
+  margin: 10px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
   border-radius: 8px;
 }
-
-
-/* buttons */
 
 /* handles affirmations and user profile */
 .other-button {
@@ -403,11 +404,8 @@ input:focus:-ms-input-placeholder {
   border-radius: 8px;
 }
 
-.profile-button{
-margin-top: 65px;
-}
 
-/* button handles forms and journal cards */
+/* handles forms and journal cards */
 .act-button {
   background-color: #3E7079;
   border: 1px solid #443545;
@@ -419,7 +417,6 @@ margin-top: 65px;
   display: inline-block;
   font-size: 16px;
   border-radius: 8px;  
-  margin-top: 30px;
   position: sticky;
 }
 
