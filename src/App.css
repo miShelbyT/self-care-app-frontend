@@ -153,45 +153,17 @@ body{
 
 .card h3{
   font-size: 18px;
-  line-height: 1.6em;
-  margin-top: 0;
 }
 
 .card h4{
   font-size: 14px;
-  line-height: 1.8em;
 }
 
-.card p{
-line-height: 1.7em;
-}
-
-.modal-container {
-  position: fixed;
-  z-index: 1;
-  padding-top: 100px;
-  left: 0;
-  top: 0;
-  width: 100%x;
-  height: 100%;
-  overflow: auto;
-  background-color: rgb(0,0,0);
-  background-color: rgba(0, 0, 0, 0.685);
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-}
-
-.modal-content {
-  width: 500px;
-  height: 600px;
-  margin: 0 auto;
-  position: relative;
+.sticky-div{
   background-color: #5297b3;
-  z-index: 2;
-  padding: 100px 50px;
-  
+  top: 0;
+  position: sticky;
+  position: -webkit-sticky;
 }
 
 /* user profile */
@@ -222,7 +194,33 @@ line-height: 1.7em;
   height: 330px;
 }
 
+.modal-container {
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%x;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0, 0, 0, 0.685);
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
 
+.modal-content {
+  width: 500px;
+  height: 600px;
+  margin: 0 auto;
+  position: relative;
+  background-color: #5297b3;
+  z-index: 2;
+  padding: 100px 50px;
+  
+}
 
 
 /* handles login and sign up form and journal entry form */
@@ -389,7 +387,10 @@ input:focus:-ms-input-placeholder {
   border-radius: 8px;
 }
 
-/* button handles affirmations and user profile */
+
+/* buttons */
+
+/* handles affirmations and user profile */
 .other-button {
   background-color: #443545;
   border: 2px solid grey;
@@ -419,6 +420,7 @@ margin-top: 65px;
   font-size: 16px;
   border-radius: 8px;  
   margin-top: 30px;
+  position: sticky;
 }
 
 .update button {
@@ -427,12 +429,6 @@ margin-top: 65px;
 
 .update button:last-child{
   margin-left: 250px;
-}
-
-
-.two-buttons{
-  display: inline-block;
-  position: sticky;
 }
 
 /* unvisited link */
