@@ -83,7 +83,7 @@ if(this.state.activitySearch === "") {
 
 
   render() {
-    console.log(this.filterEntriesByActivity())
+    // console.log(this.filterEntriesByActivity())
     return (
       <>
 

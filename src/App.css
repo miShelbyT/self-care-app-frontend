@@ -2,7 +2,7 @@
 color: #443545;
 color: #3E7079;
 color: #008F81;
-color: grey;
+color: #CFCFCF;
 color: #5297b3;
 color: #95d8f3; 
 color: #f8f8f8;
@@ -135,8 +135,9 @@ body{
 .card{
   height: 300px;
   width: 390px;
-  padding: 1.7em;
+  padding: 1.2em;
   margin: 1.7em;
+  margin-top: 2em;
   line-height: 1.7em;
   border: 1px solid grey;
   border-radius: 6px;
@@ -149,7 +150,14 @@ body{
 }
 
 .card h3{
-  font-size: 20px;
+  font-size: 18px;
+  line-height: 1.6em;
+  margin-top: 0;
+}
+
+.card h4{
+  font-size: 14px;
+  line-height: 1.8em;
 }
 
 .card p{
@@ -184,34 +192,35 @@ line-height: 1.7em;
   
 }
 
+/* user profile */
 
-.card > h3 {
+.profile{
+  margin-top: 45px;
+  background-color: #3E7079;
+}
+
+
+.profile h3 {
   font-family: 'Nothing You Could Do', cursive; 
+  line-height: 1em;
+  margin-top: 15px;
+  padding: 0.2em;
 }
 
-.card-contents{
-  padding: 10px
-}
-
-.card-contents > p {
+/* journal entry comments */
+.card-contents p {
   font-family: 'Nothing You Could Do', cursive;
   font-size: 18px;
 }
 
+/* activity card */
 .activity { 
   margin-top: 45px;
   background-color: #95d8f3; 
   height: 330px;
 }
 
-.profile{
-  margin-top: 45px;
-  background-color: #3E7079;
-}
-.profile h3{
-  margin-top: 15px;
-  padding: 0.2em;
-}
+
 
 
 /* handles login and sign up form and journal entry form */
@@ -239,6 +248,8 @@ line-height: 1.7em;
 .form > h4 {
   font-family: 'Nothing You Could Do', cursive;
   font-size: 18px;
+  margin: 0em 0em 1.5em 0em;
+  
 }
 
 .filter label {
@@ -301,7 +312,7 @@ textarea {
 }
 
 textarea::-webkit-input-placeholder {
-  color: #999;
+  color: #CFCFCF
 }
 textarea:focus::-webkit-input-placeholder {
   color: #3E7079;
@@ -309,14 +320,14 @@ textarea:focus::-webkit-input-placeholder {
 
 /* Firefox < 19 */
 textarea:-moz-placeholder {
-  color: #999;
+  color: #CFCFCF
 }
 textarea:focus:-moz-placeholder {
   color: #3E7079;
 }
 /* Firefox > 19 */
 textarea::-moz-placeholder {
-  color: #999;
+  color: #CFCFCF
 }
 textarea:focus::-moz-placeholder {
   color: #3E7079;
@@ -324,7 +335,7 @@ textarea:focus::-moz-placeholder {
 
 /* Internet Explorer 10 */
 textarea:-ms-input-placeholder {
-  color: #999;
+  color: #CFCFCF
 }
 textarea:focus:-ms-input-placeholder {
   color: #3E7079;
@@ -332,7 +343,7 @@ textarea:focus:-ms-input-placeholder {
 
 
 input::-webkit-input-placeholder {
-  color: #999;
+  color: #CFCFCF
 }
 input:focus::-webkit-input-placeholder {
   color: #3E7079;
@@ -341,14 +352,14 @@ input:focus::-webkit-input-placeholder {
 
 /* Firefox < 19 */
 input:-moz-placeholder {
-  color: #999;
+  color: #CFCFCF
 }
 input:focus:-moz-placeholder {
   color: #3E7079;
 }
 /* Firefox > 19 */
 input::-moz-placeholder {
-  color: #999;
+  color: #CFCFCF
 }
 input:focus::-moz-placeholder {
   color: #3E7079;
@@ -356,7 +367,7 @@ input:focus::-moz-placeholder {
 
 /* Internet Explorer 10 */
 input:-ms-input-placeholder {
-  color: #999;
+  color: #CFCFCF
 }
 input:focus:-ms-input-placeholder {
   color: #3E7079;
@@ -399,7 +410,7 @@ margin-top: 65px;
   border: 1px solid #443545;
   color: #EAEAEB;
   padding: 5px 5px;
-  margin: 15px;
+  margin: 0.75em;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -408,9 +419,13 @@ margin-top: 65px;
   margin-top: 30px;
 }
 
-/* .act-button:last-child{
-  float: right;
-} */
+.update button {
+  margin: 1em 0 0 0;
+}
+
+.update button:last-child{
+  margin-left: 250px;
+}
 
 
 .two-buttons{
