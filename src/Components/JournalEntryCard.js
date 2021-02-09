@@ -15,6 +15,13 @@ class JournalEntryCard extends React.Component {
     return updatedDate.toLocaleDateString('en-US', options)
   }
 
+
+  howManyMinutes() {
+
+  }
+
+
+
   showModal = () => {
     this.setState({ show: !this.state.show })
   }
@@ -41,7 +48,11 @@ class JournalEntryCard extends React.Component {
               }
 
               <h4>{this.changeDate(this.props.journal.date)}</h4>
-              <h4>{this.props.journal["length_of_time"]} minutes</h4>
+              <h4>{this.props.journal["length_of_time"] < 60 ? `${this.props.journal["length_of_time"]} minutes` :
+
+                this.props.journal["length_of_time"] % 60 === 0 ?
+                  `${Math.floor(this.props.journal["length_of_time"] / 60)} hours` :
+                  `${Math.floor(this.props.journal["length_of_time"] / 60)} hours, ${this.props.journal["length_of_time"] % 60} minutes`}</h4>
             </div>
 
             <p>{this.props.journal.comments}</p>
