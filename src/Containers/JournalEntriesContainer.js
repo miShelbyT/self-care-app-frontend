@@ -55,7 +55,7 @@ class JournalEntriesContainer extends React.Component {
         // console.log(finalArray)
       }
       if (dateSort[i].user_activity.activity_name) {
-        // then iterating thru for activity_name from activity db
+        // then iterating thru for activity_name from user_activity db
         otherFilteredArray.push(dateSort[i])
         // console.log(otherFilteredArray)
         otherFilteredArray = otherFilteredArray.filter(entry => entry.user_activity.activity_name.toLowerCase().includes(this.state.activitySearch.toLowerCase()))

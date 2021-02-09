@@ -1,7 +1,6 @@
 /* colors are as follows
 color: #443545;
 color: #3E7079;
-color: #008F81;
 color: #CFCFCF;
 color: #5297b3;
 color: #95d8f3; 
@@ -41,6 +40,7 @@ body{
 /* Take Care -- A Self Care Journal */
 .take-care{
  padding: 1px;
+ display: inline;
  /* position: absolute; */
  text-align: center;
  /* bottom: 0; */
@@ -85,7 +85,7 @@ body{
   z-index: 2;
 }
 .menu-item:hover {
-  color: #008F81;
+  color: #3E7079;
   text-decoration: none;
 }
 
@@ -144,11 +144,6 @@ body{
   overflow: scroll;
   box-shadow: 5px 10px #39315f;
   background-color: #5297b3;
-  text-align:center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .card h3{
@@ -171,7 +166,6 @@ body{
 .profile{
   margin-top: 45px;
   background-color: #3E7079;
-  display: flex;
 }
 
 
@@ -182,11 +176,17 @@ body{
   padding: 0.2em;
 }
 
+.card-contents {
+  height: 225px;
+}
+
 /* journal entry comments */
 .card-contents p {
   font-family: 'Nothing You Could Do', cursive;
   font-size: 18px;
 }
+
+
 
 /* activity card */
 .activity { 
@@ -397,7 +397,7 @@ input:focus:-ms-input-placeholder {
   border: 2px solid grey;
   color: #f8f8f8;
   padding: 5px 5px;
-  margin: 8px;
+  margin: 2em;
   text-align: center;
   text-decoration: none;
   font-size: 16px;
