@@ -67,7 +67,7 @@ class UserProfile extends React.Component {
               </div> :
 
               <div className="container">
-                <div className="profile-card">
+                <div className="card profile">
                   <form onSubmit={this.submitHandler} className="form">
                     <label>UserName: </label>
                     <input

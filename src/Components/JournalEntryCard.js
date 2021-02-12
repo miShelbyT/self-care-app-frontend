@@ -16,12 +16,6 @@ class JournalEntryCard extends React.Component {
   }
 
 
-  howManyMinutes() {
-
-  }
-
-
-
   showModal = () => {
     this.setState({ show: !this.state.show })
   }
