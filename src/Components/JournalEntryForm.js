@@ -90,8 +90,6 @@ class JournalEntryForm extends React.Component {
     } else {
       alert("oops your journal entry is incomplete. please try again.")
     }
-
-
   }
 
   clickHandler = () => {
