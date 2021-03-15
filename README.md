@@ -9,7 +9,7 @@ App also allows for full CRUD functionality of user’s profile along with encry
 * Handled serializers on Rails back end to access/manage nested data (including optional belongs_to relationship)
 * Used vanilla CSS for all styling including overlays, modals, etc. 
 
-# A HUGE thanks to all of my instructors and coaches at Flatiron for their instruction & support. Also great big shout out to hubby Chris for all the dog walks, coffee, general food/water intake. <3 
+A HUGE thanks to all of my instructors and coaches at Flatiron for their instruction & support. Also great big shout out to hubby Chris for all the dog walks, coffee, general food/water intake. <3 
 
 Thanks to Jason Leung @ninjason at Unsplash for the header image and https://www.toptal.com/designers/subtlepatterns/ for the pretty wallpaper design
 
