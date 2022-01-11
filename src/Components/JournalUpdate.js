@@ -17,23 +17,17 @@ class JournalUpdateForm extends React.Component {
     // console.log(this.state)
   }
 
-  submitHandler = (e) => {
-    e.preventDefault()
-
-    let updatedJournalObj = this.state
-    // console.log(newJournalEntryObj)
-    this.props.updateJournalEntry(this.props.journal.id, updatedJournalObj)
-
-    // this.setState({
-    //   date: this.props.journal.date,
-    //   length_of_time: this.props.journal["length_of_time"],
-    //   comments: this.props.journal.comments
-    // })
-  }
-
-  onClose = (e) => {
+  onClose = (e)=> {
     this.props.onClose && this.props.onClose(e)
   }
+
+  submitHandler = (e) => {
+    e.preventDefault()
+    let updatedJournalObj = this.state
+    // console.log(newJournalEntryObj)
+    this.props.updateJournalEntry(this.props.journal.id, updatedJournalObj);
+  }
+
 
 
   render() {
@@ -74,8 +68,8 @@ class JournalUpdateForm extends React.Component {
             onChange={this.changeHandler}
           />
           <br></br><br></br>
-          <button className="act-button" >Submit Updated Entry</button>
-          <button className="act-button" onClick={this.onClose} >Go Back</button>
+          <button className="act-button" onClick={this.onClose}>Go Back</button>
+          <button className="act-button">Submit Updated Entry</button>
         </form>
       </div>
       </div>

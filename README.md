@@ -2,6 +2,8 @@
 
 Go here to view project demo: https://youtu.be/Fhb1zT1z-WQ
 
+If you want to use my login it is login: Shelby / password: 123
+
 Take Care is a self-care/journaling app allows the user to sign up/log in, peruse a list of self-care activities, save, update and delete journal entries pertaining to those activities as well as create original activities. Also uses an external API to generate daily affirmations.
 
 App also allows for full CRUD functionality of user’s profile along with encrypted password using BCrypt on the backend and localStorage on the frontend.

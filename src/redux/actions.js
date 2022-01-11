@@ -139,29 +139,31 @@ export const logIn = (userObj) => {
 
     } else {
       //normal log in fetch
-      fetch("http://localhost:3000/api/v1/users/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accepts": "application.json"
-        },
-        body: JSON.stringify(userObj)
-      })
-        .then(r => r.json())
-        .then(data => {
-          // console.log(data)
-          if (data.id) {
-            // console.log("found user", data['name'])
-            // console.log("found user object", data)
-            //If user was fetched succesfully, user data will be added to local storage
-            localStorage.setItem("USER_DATA", JSON.stringify(data))
-            dispatch({ type: LOG_IN, payload: data })
-          } else {
-            // console.log("user not found")
-            alert("Wrong Username or Password Please Try Again")
-          }
+      try{
+        fetch("http://localhost:3000/api/v1/users/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accepts": "application.json"
+          },
+          body: JSON.stringify(userObj)
         })
-        .catch(console.log)
+          .then(r => r.json())
+          .then(data => {
+            // console.log(data)
+            if (data.id) {
+              // console.log("found user", data['name'])
+              // console.log("found user object", data)
+              //If user was fetched succesfully, user data will be added to local storage
+              localStorage.setItem("USER_DATA", JSON.stringify(data))
+              dispatch({ type: LOG_IN, payload: data })
+            } 
+          })
+      }
+      catch(error) {
+        alert("Wrong Username or Password Please Try Again")
+        console.log(error)
+      }
 
     }
 

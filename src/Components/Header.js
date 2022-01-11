@@ -16,7 +16,7 @@ class Header extends React.Component {
 
   componentDidMount = () => {
     //this will run on refresh, passing undefined to your logIn action.
-    //This is seperate from when the logIn action gets called in your logIn form. 
+    //This is separate from when the logIn action gets called in your logIn form. 
     this.props.submitHandler(null)
   }
 

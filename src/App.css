@@ -1,13 +1,11 @@
-/* colors are as follows
-color: #443545;
-color: #3E7079;
-color: #CFCFCF;
-color: #5297b3;
-color: #95d8f3; 
-color: #f8f8f8;
-color: #39315f;
-
-*/
+:root {
+  --activityCard: #95d8f3;
+  --journalCard: #5297b3;
+  --profileCard: #3E7079;
+  --cardShadow: #443545;
+  --scriptText: #f8f8f8;
+  --grey: #CFCFCF;
+}
 /* resetting headers with less margin/padding so i can set them up manually to my liking */
 h1, h2, h3, h4 {
   margin:0;
@@ -17,8 +15,11 @@ h1, h2, h3, h4 {
 body{
   text-align: center;
   background-image: url(https://i.imgur.com/0OSMWEH.png);
-  /* background-color: #CBCBCD; */
   font-family: 'Montserrat', sans-serif;
+}
+
+button {
+  cursor: pointer;
 }
 
 .header{
@@ -34,7 +35,8 @@ body{
   position: absolute;
   top:35px;
   right: 0;
-  color: #fff;
+  color: var(--scriptText);
+  cursor: pointer;
   }
 
 /* Take Care -- A Self Care Journal */
@@ -47,7 +49,7 @@ body{
  font-size: 23px;
  /* font-weight: bold; */
  font-family: 'Nothing You Could Do', cursive; 
- color: #f8f8f8;
+ color: var(--scriptText);
 
 }
 
@@ -80,12 +82,15 @@ body{
 .menu-item{
   display: block;
   margin: 50px;
-  color: #CBCBCD;
+  color: var(--scriptText);
+  font-family: 'Nothing You Could Do', cursive; 
   position: relative;
+  transition: all .2s ease-in;
   z-index: 2;
 }
 .menu-item:hover {
-  color: #3E7079;
+  color: var(--activityCard);
+  transform: scale(1.05);
   text-decoration: none;
 }
 
@@ -142,8 +147,8 @@ body{
   border: 1px solid grey;
   border-radius: 6px;
   overflow: scroll;
-  box-shadow: 5px 10px #39315f;
-  background-color: #5297b3;
+  box-shadow: 5px 10px var(--cardShadow);
+  background-color: var(--journalCard);
 }
 
 .card h3{
@@ -155,7 +160,7 @@ body{
 }
 
 .sticky-div{
-  background-color: #5297b3;
+  background-color: var(--journalCard);
   top: 0;
   position: sticky;
   position: -webkit-sticky;
@@ -168,7 +173,7 @@ body{
   margin-top: 45px;
   width: auto;
   height: auto;
-  background-color: #3E7079;
+  background-color: var(--profileCard);
 }
 
 
@@ -194,8 +199,15 @@ body{
 /* activity card */
 .activity { 
   margin-top: 45px;
-  background-color: #95d8f3; 
+  background-color: var(--activityCard); 
   height: 330px;
+  transition: all .2s ease-in-out;
+}
+
+.activity:hover {
+  background-color: #e1f3fa;
+  color: #0d2383;
+  transform: scale(1.05);
 }
 
 .modal-container {
@@ -220,7 +232,7 @@ body{
   height: 600px;
   margin: 0 auto;
   position: relative;
-  background-color: #5297b3;
+  background-color: var(--journalCard);
   z-index: 2;
   padding: 100px 50px;
   
@@ -278,8 +290,8 @@ textarea {
   padding: 12px 20px;
   margin: 0px;
   border-radius: 4px;
-  background-color: #f8f8f8;
-  border: 1px solid #5297b3;
+  background-color: var(--scriptText);
+  border: 1px solid var(--journalCard);
 }
 
 
@@ -287,18 +299,18 @@ input[type=text], [type=email], [type=password], [type=select], [type=number]{
   font-size: 14px;
   width: 240px;
   padding: 12px;
-  border: 1px solid #5297b3;
-  background-color: #f8f8f8;
+  border: 1px solid var(--journalCard);
+  background-color: var(--scriptText);
   -webkit-transition: 0.5s;
   transition: 7.0s;
 }
 
 input[type=text]:focus {
-  border: 2px solid #443545;
+  border: 2px solid var(--cardShadow);
 }
 
 [type="date"] {
-  background:#f8f8f8 url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;
+  background:var(--scriptText) url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;
 }
 [type="date"]::-webkit-inner-spin-button {
   display: none;
@@ -316,65 +328,65 @@ textarea {
 }
 
 textarea::-webkit-input-placeholder {
-  color: #CFCFCF
+  color: var(--grey)
 }
 textarea:focus::-webkit-input-placeholder {
-  color: #3E7079;
+  color: var(--profileCard);
 }
 
 /* Firefox < 19 */
 textarea:-moz-placeholder {
-  color: #CFCFCF
+  color: var(--grey)
 }
 textarea:focus:-moz-placeholder {
-  color: #3E7079;
+  color: var(--profileCard);
 }
 /* Firefox > 19 */
 textarea::-moz-placeholder {
-  color: #CFCFCF
+  color: var(--grey)
 }
 textarea:focus::-moz-placeholder {
-  color: #3E7079;
+  color: var(--profileCard);
 }
 
 /* Internet Explorer 10 */
 textarea:-ms-input-placeholder {
-  color: #CFCFCF
+  color: var(--grey)
 }
 textarea:focus:-ms-input-placeholder {
-  color: #3E7079;
+  color: var(--profileCard);
 }
 
 
 input::-webkit-input-placeholder {
-  color: #CFCFCF
+  color: var(--grey)
 }
 input:focus::-webkit-input-placeholder {
-  color: #3E7079;
+  color: var(--profileCard);
 }
 
 
 /* Firefox < 19 */
 input:-moz-placeholder {
-  color: #CFCFCF
+  color: var(--grey)
 }
 input:focus:-moz-placeholder {
-  color: #3E7079;
+  color: var(--profileCard);
 }
 /* Firefox > 19 */
 input::-moz-placeholder {
-  color: #CFCFCF
+  color: var(--grey)
 }
 input:focus::-moz-placeholder {
-  color: #3E7079;
+  color: var(--profileCard);
 }
 
 /* Internet Explorer 10 */
 input:-ms-input-placeholder {
-  color: #CFCFCF
+  color: var(--grey)
 }
 input:focus:-ms-input-placeholder {
-  color: #3E7079;
+  color: var(--profileCard);
 }
 
 
@@ -382,9 +394,9 @@ input:focus:-ms-input-placeholder {
 
 /* handles log in sign up */
 .welcome-button {
-  background-color: #443545;
-  border: 2px solid #3E7079;
-  color: #f8f8f8;
+  background-color: var(--cardShadow);
+  border: 2px solid var(--profileCard);
+  color: var(--scriptText);;
   padding: 5px 5px;
   margin: 10px;
   text-align: center;
@@ -396,9 +408,9 @@ input:focus:-ms-input-placeholder {
 
 /* handles affirmations and user profile */
 .other-button {
-  background-color: #443545;
+  background-color: var(--cardShadow);
   border: 2px solid grey;
-  color: #f8f8f8;
+  color: var(--scriptText);;
   padding: 5px 5px;
   margin: 2em;
   text-align: center;
@@ -410,9 +422,9 @@ input:focus:-ms-input-placeholder {
 
 /* handles forms and journal cards */
 .act-button {
-  background-color: #3E7079;
-  border: 1px solid #443545;
-  color: #EAEAEB;
+  background-color: var(--profileCard);
+  border: 1px solid var(--cardShadow);
+  color: var(--scriptText);
   padding: 5px 5px;
   margin: 0.75em;
   text-align: center;
@@ -433,7 +445,7 @@ input:focus:-ms-input-placeholder {
 
 /* unvisited link */
 a:link {
-  color: #3E7079;
+  color: var(--profileCard);
   text-decoration: none;
 }
 
@@ -443,13 +455,13 @@ p > a {
 
 /* visited link */
 a:visited {
-  color: #443545;
+  color: var(--cardShadow);
   text-decoration: none;
 }
 
 /* mouse over link */
 a:hover {
-  color: #443545;
+  color: var(--cardShadow);
   text-decoration: none
 }
 
